@@ -10,5 +10,7 @@
 
 @implementation GJWNetwork
 
-
+- (void)test {
+    
+}
 @end
