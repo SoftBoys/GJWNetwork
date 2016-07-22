@@ -49,6 +49,8 @@
     for (NSURLSessionTask *task in self.tasks) {
         NSLog(@"%@ --- %lu", task, task.taskIdentifier);
     }
+    
+    
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        NSLog(@"after");
 //        for (NSURLSessionTask *task in self.tasks) {
