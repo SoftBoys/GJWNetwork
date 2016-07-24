@@ -25,6 +25,7 @@ typedef NSURLSessionTask GJWURLSessionTask;
 typedef void(^GJWResponseSuccess)(GJWURLSessionTask *task, id response);
 typedef void(^GJWResponseFail)(GJWURLSessionTask *task, NSError *error);
 
+@class GJWFormData;
 @interface GJWNetwork : NSObject
 /**
  *  设置请求接口的BaseUrl
@@ -47,17 +48,60 @@ typedef void(^GJWResponseFail)(GJWURLSessionTask *task, NSError *error);
  */
 + (void)configRequestType:(GJWRequestType)requestType
              responseType:(GJWResponseType)responseType;
-
+/**
+ *  设置请求超时时间，默认30秒
+ *
+ *  @param timeout 超时时间
+ */
++ (void)setTimeout:(NSTimeInterval)timeout;
+/**
+ *  取消所有请求
+ */
 + (void)cancelAllRequest;
-
+/**
+ *  取消task请求
+ */
++ (void)cancelTask:(GJWURLSessionTask *)task;
+/**
+ *  根据url取消请求
+ */
++ (void)cancelTaskWithUrl:(NSString *)url;
+/**
+ *  发送get请求
+ *
+ *  @param url     请求url
+ *  @param success 成功回调
+ *  @param fail    失败回调
+ *
+ *  @return 返回当前sessiontask
+ */
 + (GJWURLSessionTask *)getWithUrl:(NSString *)url
                           success:(GJWResponseSuccess)success
                              fail:(GJWResponseFail)fail;
+/**
+ *  发送get请求
+ *
+ *  @param url     请求url
+ *  @param param   请求参数
+ *  @param success 成功回调
+ *  @param fail    失败回调
+ *
+ *  @return 返回当前sessiontask
+ */
 + (GJWURLSessionTask *)getWithUrl:(NSString *)url
                             param:(NSDictionary *)param
                           success:(GJWResponseSuccess)success
                              fail:(GJWResponseFail)fail;
-
+/**
+ *  发送post请求
+ *
+ *  @param url     请求url
+ *  @param param   请求参数
+ *  @param success 成功回调
+ *  @param fail    失败回调
+ *
+ *  @return 返回当前sessiontask
+ */
 + (GJWURLSessionTask *)postWithUrl:(NSString *)url
                             param:(NSDictionary *)param
                           success:(GJWResponseSuccess)success
@@ -65,25 +109,49 @@ typedef void(^GJWResponseFail)(GJWURLSessionTask *task, NSError *error);
 /**
  *  上传图片
  *
- *  @param image    图片
- *  @param name     图片参数名（默认为file,name是指服务器端的文件夹名字）
- *  @param fileName 文件名 (可以以时间戳命名.jpg/png)
- *  @param mimeType 文件类型（默认为multipart/form-data,）
  *  @param url      url
  *  @param param    参数
+ *  @param formData 图片参数
  *  @param success  成功回调
  *  @param fail     失败回调
  *
- *  @return <#return value description#>
+ *  @return 返回当前sessiontask
  */
-+ (GJWURLSessionTask *)postImage:(UIImage *)image
-                            name:(NSString *)name
-                        fileName:(NSString *)fileName
-                        mimeType:(NSString *)mimeType
-                             url:(NSString *)url
-                           param:(NSDictionary *)param
-                         success:(GJWResponseSuccess)success
-                            fail:(GJWResponseFail)fail;
++ (GJWURLSessionTask *)postImageWithUrl:(NSString *)url
+                                  param:(NSDictionary *)param
+                               formData:(GJWFormData *)formData
+                                success:(GJWResponseSuccess)success
+                                   fail:(GJWResponseFail)fail;
+/**
+ *  上传多张图片
+ */
++ (GJWURLSessionTask *)postImageWithUrl:(NSString *)url
+                                  param:(NSDictionary *)param
+                              formDatas:(NSArray <GJWFormData *>*)formDatas
+                                success:(GJWResponseSuccess)success
+                                   fail:(GJWResponseFail)fail;
 
-+ (NSArray<NSURLSessionTask*>*)manageTasks;
+//+ (NSArray<NSURLSessionTask*>*)manageTasks;
 @end
+
+@interface GJWFormData : NSObject
+
+/**
+ *  <#Description#>
+ */
+@property (nonatomic, strong) NSData *imageData;
+/**
+ *  图片参数名（默认为file,name是指服务器端的文件夹名字）
+ */
+@property (nonatomic, copy) NSString *name;
+/**
+ *  文件名 (默认以时间戳命名.jpg/png)
+ */
+@property (nonatomic, copy) NSString *filename;
+/**
+ *  文件类型（默认为multipart/form-data,）
+ */
+@property (nonatomic, copy) NSString *mimeType;
+
+@end
+

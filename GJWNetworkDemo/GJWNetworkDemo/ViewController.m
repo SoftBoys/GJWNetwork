@@ -38,25 +38,20 @@
         
     }];
     
-    self.tasks = [GJWNetwork manageTasks];
+    [GJWNetwork getWithUrl:@"home4" param:nil success:^(GJWURLSessionTask *task, id response) {
+        
+    } fail:^(GJWURLSessionTask *task, NSError *error) {
+        
+    }];
+    
+    GJWFormData *data = [GJWFormData new];
+    [GJWNetwork postImageWithUrl:@"home5" param:nil formData:data success:nil fail:nil];
     
     
-    for (NSURLSessionTask *task in self.tasks) {
-        NSLog(@"%@ --- %lu", task, task.taskIdentifier);
-    }
+//    [GJWNetwork cancelTaskWithUrl:@"home1"];
+    
     [GJWNetwork cancelAllRequest];
-    NSLog(@"after");
-    for (NSURLSessionTask *task in self.tasks) {
-        NSLog(@"%@ --- %lu", task, task.taskIdentifier);
-    }
-    
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        NSLog(@"after");
-//        for (NSURLSessionTask *task in self.tasks) {
-//            NSLog(@"%@ --- %lu", task, task.taskIdentifier);
-//        }
-//    });
+
 }
 
 @end

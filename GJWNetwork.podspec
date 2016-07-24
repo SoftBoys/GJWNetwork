@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GJWNetwork"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "基于AFNetworking封装的下载类库"
   s.homepage     = "https://github.com/SoftBoys/GJWNetwork"
   s.license      = "MIT"
