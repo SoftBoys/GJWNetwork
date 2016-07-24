@@ -9,7 +9,7 @@
 ## 集成说明
 你可以在Podfile中添加一行代码来使用GJWNetwork
 ```
-pod 'GJWNetwork', '~> 0.1.0'
+pod 'GJWNetwork', '~> 0.1.1'
 ```
 你也可以手动添加源码使用本项目，导入AFNetworing3.0.4及以上版本
 
