@@ -152,7 +152,9 @@ static NSTimeInterval gjw_timeout = 30.0f;
     }
     
     // 设置超时时间
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = gjw_timeout;
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     // 最多同时请求三个
     manager.operationQueue.maxConcurrentOperationCount = 3;

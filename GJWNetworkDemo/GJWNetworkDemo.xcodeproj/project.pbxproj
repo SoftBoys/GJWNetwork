@@ -14,6 +14,7 @@
 		E9210E551D406FE600D95FB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9210E531D406FE600D95FB2 /* Main.storyboard */; };
 		E9210E571D406FE600D95FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9210E561D406FE600D95FB2 /* Assets.xcassets */; };
 		E9210E5A1D406FE600D95FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9210E581D406FE600D95FB2 /* LaunchScreen.storyboard */; };
+		E93CC8461D5D81A800147ED3 /* CityItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E93CC8451D5D81A800147ED3 /* CityItem.m */; };
 		E98EFD621D40779F00D0AD92 /* GJWNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = E98EFD611D40779F00D0AD92 /* GJWNetwork.m */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		E9210E561D406FE600D95FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9210E591D406FE600D95FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9210E5B1D406FE600D95FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E93CC8441D5D81A800147ED3 /* CityItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityItem.h; sourceTree = "<group>"; };
+		E93CC8451D5D81A800147ED3 /* CityItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityItem.m; sourceTree = "<group>"; };
 		E98EFD601D40779F00D0AD92 /* GJWNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJWNetwork.h; sourceTree = "<group>"; };
 		E98EFD611D40779F00D0AD92 /* GJWNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJWNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +85,8 @@
 				E9210E4E1D406FE600D95FB2 /* AppDelegate.m */,
 				E9210E501D406FE600D95FB2 /* ViewController.h */,
 				E9210E511D406FE600D95FB2 /* ViewController.m */,
+				E93CC8441D5D81A800147ED3 /* CityItem.h */,
+				E93CC8451D5D81A800147ED3 /* CityItem.m */,
 				E9210E531D406FE600D95FB2 /* Main.storyboard */,
 				E9210E561D406FE600D95FB2 /* Assets.xcassets */,
 				E9210E581D406FE600D95FB2 /* LaunchScreen.storyboard */,
@@ -239,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9210E521D406FE600D95FB2 /* ViewController.m in Sources */,
+				E93CC8461D5D81A800147ED3 /* CityItem.m in Sources */,
 				E98EFD621D40779F00D0AD92 /* GJWNetwork.m in Sources */,
 				E9210E4F1D406FE600D95FB2 /* AppDelegate.m in Sources */,
 				E9210E4C1D406FE600D95FB2 /* main.m in Sources */,
@@ -353,7 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GJWNetworkDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GJWNetworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -366,7 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GJWNetworkDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GJWNetworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
