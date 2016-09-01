@@ -1,10 +1,16 @@
 # GJWNetwork
 基于AFNetworing封装的下载库，支持自动配置请求头，支持GET/POST上传下载功能
 
+## version 0.1.5
+* 修复某些请求类型失败的bug
+
+## version 0.1.4
+* 支持设置请求你超时时间
+
 ## version 0.1.3
 * 基于AFNetworing3.0.4
 * 支持iOS7.0及以上版本
-* 支持pod： pod 'GJWNetwork', '~> 0.1.3'
+* 支持pod： pod 'GJWNetwork'
 
 ## 集成说明
 你可以在Podfile中添加一行代码来使用GJWNetwork
