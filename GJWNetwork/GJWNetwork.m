@@ -159,6 +159,15 @@ static NSTimeInterval gjw_timeout = 30.0f;
     // 最多同时请求三个
     manager.operationQueue.maxConcurrentOperationCount = 3;
     
+    // 设置支持接收类型
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
+                                                                              @"text/html",
+                                                                              @"text/json",
+                                                                              @"text/plain",
+                                                                              @"text/javascript",
+                                                                              @"text/xml",
+                                                                              @"image/*"]];
+    
     return manager;
 }
 

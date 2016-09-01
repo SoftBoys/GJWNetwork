@@ -27,6 +27,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    NSDictionary *param = @{@"uid":@"133825214",
+                            @"interest":@"1",
+                            @"count":@(20)};
+    
+//    [GJWNetwork configRequestType:kGJWRequestTypePlainText responseType:kGJWResponseTypeJSON];
+    
+    [GJWNetwork getWithUrl:@"http://116.211.167.106/api/live/aggregation" param:param success:^(GJWURLSessionTask *task, id response) {
+        
+        NSLog(@"response:%@", response);
+        if (response) {
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                });
+            });
+        }
+        
+    } fail:^(GJWURLSessionTask *task, NSError *error) {
+        NSLog(@"error:%@", error);
+    }];
+    
+    
+    return;
+    [GJWNetwork updateBaseUrl:@"http://101.231.204.84:8091"];
+    [GJWNetwork configRequestType:kGJWRequestTypePlainText responseType:kGJWResponseTypeData];
+    
+    [GJWNetwork getWithUrl:@"/sim/getacptn" success:^(GJWURLSessionTask *task, id response) {
+        if (response) {
+            NSString *string = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",string);
+        }
+    } fail:^(GJWURLSessionTask *task, NSError *error) {
+        
+    }];
+    
+    return;
+    
     [self makeTableView];
     
     [GJWNetwork updateBaseUrl:@"http://api.t.dianping.com"];
@@ -36,6 +77,7 @@
     
     // 设置请求数据类型，返回数据类型
     [GJWNetwork configRequestType:kGJWRequestTypeJSON responseType:kGJWResponseTypeXML];
+    
     
     GJWURLSessionTask *task = [GJWNetwork getWithUrl:@"/n/base/cities.xml" param:@{@"appFlag":@"1",@"target":@"2"} success:^(GJWURLSessionTask *task, id response) {
         NSLog(@"成功--- %@", response);
