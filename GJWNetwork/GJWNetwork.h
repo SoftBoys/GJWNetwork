@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-/** 0.1.6 */
+/** 0.1.6 */  
 typedef NS_ENUM(NSUInteger, GJWResponseType) {
     kGJWResponseTypeJSON = 1, // 默认
     kGJWResponseTypeXML  = 2, // XML
